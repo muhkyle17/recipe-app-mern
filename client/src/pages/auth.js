@@ -1,36 +1,60 @@
-const Login = () => {
-  return (
-    <div>
-      <p>Auth</p>
-    </div>
-  )
-}
+import { useState } from 'react'
 
-const Register = () => {
+const Form = ({ username, setUsername, password, setPassword, label }) => {
   return (
     <div className='auth-container'>
       <form action=''>
-        <h2>Register</h2>
+        <h2>{label}</h2>
         <div className='form-group'>
           <label htmlFor='username'>Username:</label>
           <input
             type='text'
             id='username'
-            onChange={event => {
-              console.log('event')
-            }}
+            value={username}
+            onChange={e => setUsername(e.target.value)}
           />
           <label htmlFor='password'>Password:</label>
           <input
             type='text'
             id='password'
-            onChange={event => {
-              console.log('event')
-            }}
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
+
+        <button type='submit'>{label}</button>
       </form>
     </div>
+  )
+}
+
+const Login = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  return (
+    <Form
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      label='Login'
+    />
+  )
+}
+
+const Register = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  return (
+    <Form
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      label='Register'
+    />
   )
 }
 
