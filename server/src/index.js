@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import { userRouter } from './routes/users.js'
+import { recipesRouter } from './routes/recipes.js'
 
 // const uri = process.env.MOVIEREVIEWS_DB_URI || ''
 // const password = process.env.RECIPES_DB_PASSWORD
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/auth', userRouter)
+app.use('/recipes', recipesRouter)
 
 // mongoose.connect(uri)
 // mongoose.connect(
