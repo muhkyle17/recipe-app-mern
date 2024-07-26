@@ -1,7 +1,7 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import { UserModel } from '../models/Users.js'
 import { RecipeModel } from '../models/Recipes.js'
+import { verifyToken } from './users.js'
 
 const router = express.Router()
 
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   const recipe = new RecipeModel(req.body)
 
   try {
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/', async (req, res) => {
+router.put('/', verifyToken, async (req, res) => {
   try {
     const recipe = await RecipeModel.findById(req.body.recipeID)
     const user = await UserModel.findById(req.body.userID)
