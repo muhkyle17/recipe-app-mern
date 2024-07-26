@@ -32,12 +32,12 @@ const Home = () => {
   }, [])
 
   const saveRecipe = async recipeID => {
-    console.log(recipeID, 'recipeID')
     try {
-      await axios.put('http://localhost:3001/recipes', {
+      const response = await axios.put('http://localhost:3001/recipes', {
         recipeID,
         userID,
       })
+      setSavedRecipes(response.data.savedRecipes)
     } catch (err) {
       console.error(err)
     }
