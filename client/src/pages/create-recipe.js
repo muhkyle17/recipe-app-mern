@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import axios from 'axios'
+import { useGetUserID } from '../hooks/useGetUserID'
 
 const CreateRecipe = () => {
+  const userID = useGetUserID()
+
   const [recipe, setRecipe] = useState({
     name: '',
     description: '',
@@ -8,7 +12,7 @@ const CreateRecipe = () => {
     instructions: '',
     imageURL: '',
     cookingTime: 0,
-    userOwner: 0,
+    userOwner: userID,
   })
 
   const handleChange = e => {
@@ -31,12 +35,21 @@ const CreateRecipe = () => {
     setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ''] })
   }
 
-  console.log(recipe, 'recipe')
+  const onSubmit = async e => {
+    e.preventDefault()
+
+    try {
+      await axios.post('http://localhost:3001/recipes', recipe)
+      alert('Recipe created')
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <div className='create-recipe'>
       <h2>Create Recipe</h2>
-      <form>
+      <form onSubmit={onSubmit}>
         <label htmlFor='name'>Name</label>
         <input type='text' id='name' name='name' onChange={handleChange} />
 
