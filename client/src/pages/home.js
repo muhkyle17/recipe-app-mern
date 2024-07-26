@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useGetUserID } from '../hooks/useGetUserID'
 
 const Home = () => {
   const [recipes, setRecipes] = useState([])
   const userID = useGetUserID()
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -25,11 +22,10 @@ const Home = () => {
   const saveRecipe = async recipeID => {
     console.log(recipeID, 'recipeID')
     try {
-      const response = await axios.put('http://localhost:3001/recipes', {
+      await axios.put('http://localhost:3001/recipes', {
         recipeID,
         userID,
       })
-      console.log(response)
     } catch (err) {
       console.error(err)
     }
