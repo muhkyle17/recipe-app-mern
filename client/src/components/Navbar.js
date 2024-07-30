@@ -13,14 +13,22 @@ const Navbar = () => {
   }
 
   return (
-    <div className='navbar'>
-      <Link to='/'>Home</Link>
-      <Link to='/create-recipe'>Create Recipe</Link>
+    <div className='w-full h-[70px] text-[#696969] flex flex-row items-center justify-center gap-14 text-lg uppercase border-b-4 border-b-[#f2f2f2]'>
+      <Link className='hover:text-orange-500' to='/'>
+        Home
+      </Link>
+      <Link className='hover:text-orange-500' to='/create-recipe'>
+        Create Recipe
+      </Link>
       {!cookies.access_token ? (
-        <Link to='/auth'>Login/Register</Link>
+        <Link className='hover:text-orange-500' to='/auth'>
+          Login/Register
+        </Link>
       ) : (
         <>
-          <Link to='/saved-recipes'>Saved Recipes</Link>
+          <Link className='hover:text-orange-500' to='/saved-recipes'>
+            Saved Recipes
+          </Link>
           <button onClick={logout}>Logout</button>
         </>
       )}

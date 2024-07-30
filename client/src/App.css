@@ -17,7 +17,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f2f2f2;
 }
 
 .auth-container {
@@ -62,12 +61,11 @@ input {
   text-decoration: none;
 }
 
-a {
-  color: white;
+/* a {
   text-decoration: none;
   margin: 10px;
   font-size: 25px;
-}
+} */
 
 .create-recipe {
   display: flex;
