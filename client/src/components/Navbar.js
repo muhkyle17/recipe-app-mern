@@ -29,7 +29,9 @@ const Navbar = () => {
           <Link className='hover:text-orange-500' to='/saved-recipes'>
             Saved Recipes
           </Link>
-          <button onClick={logout}>Logout</button>
+          <button className='hover:text-orange-500 uppercase' onClick={logout}>
+            Logout
+          </button>
         </>
       )}
     </div>
