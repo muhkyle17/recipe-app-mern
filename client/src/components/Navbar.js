@@ -13,7 +13,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='w-full h-[70px] text-[#696969] flex flex-row items-center justify-center gap-14 text-lg uppercase border-b-4 border-b-[#f2f2f2]'>
+    <div className='w-full h-[70px] text-[#696969] flex flex-row items-center justify-center gap-14 text-lg uppercase border-b-2 border-t-[10px] border-t-orange-500 border-b-[#f2f2f2]'>
       <Link className='hover:text-orange-500' to='/'>
         Home
       </Link>

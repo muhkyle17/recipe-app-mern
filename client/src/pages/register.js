@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import Form from './auth'
+import Form from './form'
 const Register = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
