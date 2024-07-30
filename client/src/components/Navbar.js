@@ -21,8 +21,8 @@ const Navbar = () => {
         Create Recipe
       </Link>
       {!cookies.access_token ? (
-        <Link className='hover:text-orange-500' to='/auth'>
-          Login/Register
+        <Link className='hover:text-orange-500' to='/login'>
+          Login
         </Link>
       ) : (
         <>

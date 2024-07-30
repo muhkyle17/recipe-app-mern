@@ -1,11 +1,6 @@
-import { useState } from 'react'
-import axios from 'axios'
-import { useCookies } from 'react-cookie'
-import { useNavigate } from 'react-router-dom'
-
 const Form = ({ username, setUsername, password, setPassword, label, onSubmit }) => {
   return (
-    <div className='auth-container'>
+    <div className='bg-orange-500'>
       <form onSubmit={onSubmit}>
         <h2>{label}</h2>
         <div className='form-group'>
@@ -31,80 +26,4 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
   )
 }
 
-const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  const [_, setCookies] = useCookies(['access_token'])
-  const navigate = useNavigate()
-
-  const onSubmit = async e => {
-    e.preventDefault()
-
-    try {
-      const response = await axios.post('http://localhost:3001/auth/login', {
-        username,
-        password,
-      })
-
-      setCookies('access_token', response.data.token)
-      window.localStorage.setItem('userID', response.data.userID)
-      navigate('/')
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  return (
-    <Form
-      username={username}
-      setUsername={setUsername}
-      password={password}
-      setPassword={setPassword}
-      label='Login'
-      onSubmit={onSubmit}
-    />
-  )
-}
-
-const Register = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  const onSubmit = async e => {
-    e.preventDefault()
-    try {
-      await axios.post('http://localhost:3001/auth/register', {
-        username,
-        password,
-      })
-
-      // TODO: Make this into a modal in the redesign
-      alert('Registration Completed! You can now login.')
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  return (
-    <Form
-      username={username}
-      setUsername={setUsername}
-      password={password}
-      setPassword={setPassword}
-      label='Register'
-      onSubmit={onSubmit}
-    />
-  )
-}
-
-const Auth = () => {
-  return (
-    <div className='auth'>
-      <Login />
-      <Register />
-    </div>
-  )
-}
-
-export default Auth
+export default Form
