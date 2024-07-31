@@ -53,12 +53,12 @@ const Home = () => {
   const isRecipeSaved = id => savedRecipes.includes(id)
 
   return (
-    <div>
-      <h1>Recipes</h1>
-      <ul>
+    <div className='container mx-auto px-20 py-10 flex flex-col items-center justify-center gap-5'>
+      <h1 className='text-5xl'>Recipes</h1>
+      <ul className='flex flex-row gap-5 flex-wrap justify-center'>
         {recipes.map(recipe => {
           return (
-            <li key={recipe._id}>
+            <li key={recipe._id} className='max-w-3xl'>
               <div>
                 <h2>{recipe.name}</h2>
                 <button disabled={isRecipeSaved(recipe._id)} onClick={() => saveRecipe(recipe._id)}>
