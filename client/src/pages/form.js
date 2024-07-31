@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { MdOutlineArrowOutward } from 'react-icons/md'
 
 const Form = ({ username, setUsername, password, setPassword, label, onSubmit }) => {
   console.log(label, 'label')
@@ -39,8 +40,15 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
         </button>
 
         {label === 'Login' && (
-          <p className='self-center'>
-            <Link to='/register'>Not registered yet? Create an account</Link>
+          <p className='self-center flex flex-row gap-1 text-base'>
+            <p>Not registered yet? </p>
+            <p>
+              <Link
+                to='/register'
+                className=' text-orange-500 hover:text-orange-600 flex flex-row items-center gap-1 font-semibold'>
+                Create an account <MdOutlineArrowOutward />
+              </Link>
+            </p>
           </p>
         )}
       </form>
