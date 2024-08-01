@@ -56,22 +56,39 @@ const CreateRecipe = () => {
 
   return (
     <div className='container mx-auto flex flex-col items-center justify-center h-[90vh]'>
-      <div className='w-[30%] border-2 border-orange-500 flex flex-col gap-5 p-6'>
-        <h2>Create Recipe</h2>
-        <form onSubmit={onSubmit}>
-          <label htmlFor='name'>Name</label>
-          <input type='text' id='name' name='name' onChange={handleChange} />
+      <div className='w-[30%] border-2 border-orange-500 flex flex-col gap-5 p-6 rounded-3xl'>
+        <h2 className='text-3xl'>Create Recipe</h2>
+        <form onSubmit={onSubmit} className='flex flex-col'>
+          <label htmlFor='name' className='text-lg mb-1'>
+            Name
+          </label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            className='border-b border-orange-500 p-1 focus:outline-none'
+            onChange={handleChange}
+          />
 
-          <label htmlFor='description'>Description</label>
-          <textarea id='description' name='description' onChange={handleChange}></textarea>
+          <label htmlFor='description' className='text-lg mb-1 mt-5'>
+            Description
+          </label>
+          <textarea
+            id='description'
+            name='description'
+            className='border-b border-orange-500 p-1 focus:outline-none'
+            onChange={handleChange}></textarea>
 
-          <label htmlFor='ingredients'>Ingredients</label>
+          <label htmlFor='ingredients' className='text-lg mb-1 mt-5'>
+            Ingredients
+          </label>
           {recipe.ingredients.map((ingredient, index) => (
             <input
               key={index}
               type='text'
               name='ingredients'
               value={ingredient}
+              className='border-b border-orange-500 p-1 focus:outline-none'
               onChange={e => handleIngredientChange(e, index)}
             />
           ))}
@@ -79,14 +96,36 @@ const CreateRecipe = () => {
             Add Ingredient
           </button>
 
-          <label htmlFor='instructions'>Instructions</label>
-          <textarea id='instructions' name='instructions' onChange={handleChange}></textarea>
+          <label htmlFor='instructions' className='text-lg mb-1 mt-5'>
+            Instructions
+          </label>
+          <textarea
+            id='instructions'
+            name='instructions'
+            className='border-b border-orange-500 p-1 focus:outline-none'
+            onChange={handleChange}></textarea>
 
-          <label htmlFor='imageUrl'>Image URL</label>
-          <input type='text' id='imageUrl' name='imageUrl' onChange={handleChange} />
+          <label htmlFor='imageUrl' className='text-lg mb-1 mt-5'>
+            Image URL
+          </label>
+          <input
+            type='text'
+            id='imageUrl'
+            name='imageUrl'
+            className='border-b border-orange-500 p-1 focus:outline-none'
+            onChange={handleChange}
+          />
 
-          <label htmlFor='cookingTime'>Cooking Time (minutes)</label>
-          <input type='number' id='cookingTime' name='cookingTime' onChange={handleChange} />
+          <label htmlFor='cookingTime' className='text-lg mb-1 mt-5'>
+            Cooking Time (minutes)
+          </label>
+          <input
+            type='number'
+            id='cookingTime'
+            name='cookingTime'
+            className='border-b border-orange-500 p-1 focus:outline-none'
+            onChange={handleChange}
+          />
 
           <button type='submit'>Create Recipe</button>
         </form>
