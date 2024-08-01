@@ -2,19 +2,20 @@ import { Link } from 'react-router-dom'
 import { MdOutlineArrowOutward } from 'react-icons/md'
 
 const Form = ({ username, setUsername, password, setPassword, label, onSubmit }) => {
-  console.log(label, 'label')
   return (
-    <div className='h-screen w-full flex items-center justify-center'>
-      <form onSubmit={onSubmit} className='flex flex-col gap-5 w-72'>
+    <div className='h-[90vh] w-full flex items-center justify-center'>
+      <form
+        onSubmit={onSubmit}
+        className='flex flex-col gap-5 w-[18rem] sm:w-[25rem] border-orange-500 border-2 p-7 rounded-3xl'>
         <h2 className='text-5xl'>{label}</h2>
         <h3>{label === 'Login' ? 'Hi, Welcome back!' : 'Create an account'}</h3>
-        <div className='form-group.. flex flex-col gap-4'>
+        <div className='flex flex-col gap-4'>
           <div className='flex flex-col'>
             <label htmlFor='username'>Username</label>
             <input
               type='text'
               id='username'
-              className='border-2 rounded-2xl px-4 py-3'
+              className='border-2 rounded-2xl px-4 py-3 focus:outline-orange-500'
               placeholder={label === 'Login' ? 'Enter your username' : 'Create your username'}
               value={username}
               onChange={e => setUsername(e.target.value)}
@@ -25,7 +26,7 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
             <input
               type='password'
               id='password'
-              className='border-2 rounded-2xl px-4 py-3'
+              className='border-2 rounded-2xl px-4 py-3 focus:outline-orange-500'
               placeholder='Enter your password'
               value={password}
               onChange={e => setPassword(e.target.value)}
@@ -40,7 +41,7 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
         </button>
 
         {label === 'Login' && (
-          <p className='self-center flex flex-row gap-1 text-base'>
+          <p className='self-center flex flex-row gap-1 text-base flex-wrap'>
             <p>Not registered yet? </p>
             <p>
               <Link
