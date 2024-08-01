@@ -66,7 +66,7 @@ const CreateRecipe = () => {
             type='text'
             id='name'
             name='name'
-            className='border-b border-orange-500 p-1 focus:outline-none'
+            className='border-b border-orange-500 py-1 focus:outline-none text-sm'
             onChange={handleChange}
           />
 
@@ -76,7 +76,7 @@ const CreateRecipe = () => {
           <textarea
             id='description'
             name='description'
-            className='border-b border-orange-500 p-1 focus:outline-none'
+            className='border-b border-orange-500 py-1 focus:outline-none text-sm'
             onChange={handleChange}></textarea>
 
           <label htmlFor='ingredients' className='text-lg mb-1 mt-5'>
@@ -87,12 +87,15 @@ const CreateRecipe = () => {
               key={index}
               type='text'
               name='ingredients'
+              className='border-b border-orange-500 py-1 focus:outline-none mt-2 text-sm'
               value={ingredient}
-              className='border-b border-orange-500 p-1 focus:outline-none'
               onChange={e => handleIngredientChange(e, index)}
             />
           ))}
-          <button type='button' onClick={addIngredient}>
+          <button
+            type='button'
+            onClick={addIngredient}
+            className='mt-5 bg-orange-400 w-fit text-center text-sm self-center text-white px-3 py-2 border-2 border-orange-400 rounded-full hover:text-gray-600 hover:bg-transparent transition-all duration-300'>
             Add Ingredient
           </button>
 
@@ -102,7 +105,7 @@ const CreateRecipe = () => {
           <textarea
             id='instructions'
             name='instructions'
-            className='border-b border-orange-500 p-1 focus:outline-none'
+            className='border-b border-orange-500 py-1 focus:outline-none text-sm'
             onChange={handleChange}></textarea>
 
           <label htmlFor='imageUrl' className='text-lg mb-1 mt-5'>
@@ -112,7 +115,7 @@ const CreateRecipe = () => {
             type='text'
             id='imageUrl'
             name='imageUrl'
-            className='border-b border-orange-500 p-1 focus:outline-none'
+            className='border-b border-orange-500 py-1 focus:outline-none text-sm'
             onChange={handleChange}
           />
 
@@ -123,11 +126,15 @@ const CreateRecipe = () => {
             type='number'
             id='cookingTime'
             name='cookingTime'
-            className='border-b border-orange-500 p-1 focus:outline-none'
+            className='border-b border-orange-500 py-1 focus:outline-none text-sm'
             onChange={handleChange}
           />
 
-          <button type='submit'>Create Recipe</button>
+          <button
+            type='submit'
+            className='mt-5 bg-orange-400 w-fit text-center text-sm self-center text-white px-3 py-2 border-2 border-orange-400 rounded-full hover:text-gray-600 hover:bg-transparent transition-all duration-300'>
+            Create Recipe
+          </button>
         </form>
       </div>
     </div>
