@@ -17,15 +17,15 @@ const Navbar = () => {
       <Link className='transition-all duration-300 hover:text-orange-500' to='/'>
         Home
       </Link>
-      <Link className='transition-all duration-300 hover:text-orange-500' to='/create-recipe'>
-        Create Recipe
-      </Link>
       {!cookies.access_token ? (
         <Link className='transition-all duration-300 hover:text-orange-500' to='/login'>
           Login
         </Link>
       ) : (
         <>
+          <Link className='transition-all duration-300 hover:text-orange-500' to='/create-recipe'>
+            Create Recipe
+          </Link>
           <Link className='transition-all duration-300 hover:text-orange-500' to='/saved-recipes'>
             Saved Recipes
           </Link>
