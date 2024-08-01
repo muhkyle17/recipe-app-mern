@@ -58,19 +58,27 @@ const Home = () => {
       <ul className='flex flex-row gap-5 flex-wrap justify-center'>
         {recipes.map(recipe => {
           return (
-            <li key={recipe._id} className='w-[400px] h-fit flex flex-col'>
+            <li key={recipe._id} className='w-[350px] h-fit flex flex-col'>
               <img
                 src={recipe.imageUrl}
                 alt={recipe.name}
-                className='max-w-full w-[400px] h-auto rounded-t-lg'
+                className='max-w-full w-[350px] h-auto rounded-t-lg'
               />
-              <div className='p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
-                <h2 className=''>{recipe.name}</h2>
-                <button disabled={isRecipeSaved(recipe._id)} onClick={() => saveRecipe(recipe._id)}>
-                  {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
-                </button>
+              <div className='flex flex-col gap-2 p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
+                <div className='flex flex-row gap-3 items-center'>
+                  <h2 className='text-2xl'>{recipe.name}</h2>
+                  <button
+                    disabled={isRecipeSaved(recipe._id)}
+                    onClick={() => saveRecipe(recipe._id)}
+                    className='bg-orange-500 disabled:bg-gray-300 text-white text-sm py-1 px-2 rounded-full'>
+                    {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
+                  </button>
+                </div>
                 <p>{recipe.instructions}</p>
-                <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
+                <p>
+                  <span className='font-semibold'>Cooking Time:</span> {recipe.cookingTime}{' '}
+                  (minutes)
+                </p>
               </div>
             </li>
           )
