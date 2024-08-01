@@ -70,7 +70,7 @@ const Home = () => {
                   <button
                     disabled={isRecipeSaved(recipe._id)}
                     onClick={() => saveRecipe(recipe._id)}
-                    className='bg-orange-500 disabled:bg-gray-300 text-white text-sm py-1 px-2 rounded-full'>
+                    className='bg-orange-400 w-fit text-center disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white text-white text-sm py-1 px-3 rounded-full border-2 border-orange-400 hover:text-gray-600 hover:bg-transparent transition-all duration-300'>
                     {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
                   </button>
                 </div>
