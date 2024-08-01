@@ -65,7 +65,7 @@ const Home = () => {
                 className='max-w-full w-[350px] h-auto rounded-t-lg'
               />
               <div className='flex flex-col gap-2 p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
-                <div className='flex flex-row gap-3 items-center'>
+                <div className='flex flex-row items-center justify-between'>
                   <h2 className='text-2xl'>{recipe.name}</h2>
                   <button
                     disabled={isRecipeSaved(recipe._id)}
