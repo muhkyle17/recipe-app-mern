@@ -67,12 +67,14 @@ const Home = () => {
               <div className='flex flex-col gap-2 p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
                 <div className='flex flex-row items-center justify-between'>
                   <h2 className='text-2xl'>{recipe.name}</h2>
-                  <button
-                    disabled={isRecipeSaved(recipe._id)}
-                    onClick={() => saveRecipe(recipe._id)}
-                    className='bg-orange-400 w-fit text-center disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white text-white text-sm py-1 px-3 rounded-full border-2 border-orange-400 hover:text-gray-600 hover:bg-transparent transition-all duration-300'>
-                    {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
-                  </button>
+                  {cookies.access_token && (
+                    <button
+                      disabled={isRecipeSaved(recipe._id)}
+                      onClick={() => saveRecipe(recipe._id)}
+                      className='bg-orange-400 w-fit text-center disabled:bg-gray-300 disabled:border-gray-300 disabled:text-white text-white text-sm py-1 px-3 rounded-full border-2 border-orange-400 hover:text-gray-600 hover:bg-transparent transition-all duration-300'>
+                      {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
+                    </button>
+                  )}
                 </div>
                 <p>{recipe.instructions}</p>
                 <p>
