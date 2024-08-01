@@ -17,11 +17,7 @@ const Navbar = () => {
       <Link className='transition-all duration-300 hover:text-orange-500' to='/'>
         Home
       </Link>
-      {!cookies.access_token ? (
-        <Link className='transition-all duration-300 hover:text-orange-500' to='/login'>
-          Login
-        </Link>
-      ) : (
+      {cookies.access_token ? (
         <>
           <Link className='transition-all duration-300 hover:text-orange-500' to='/create-recipe'>
             Create Recipe
@@ -35,6 +31,10 @@ const Navbar = () => {
             Logout
           </button>
         </>
+      ) : (
+        <Link className='transition-all duration-300 hover:text-orange-500' to='/login'>
+          Login
+        </Link>
       )}
     </div>
   )
