@@ -55,10 +55,10 @@ const CreateRecipe = () => {
   }
 
   return (
-    <div className='container mx-auto flex flex-col items-center justify-center h-[90vh]'>
-      <div className='w-[30%] border-2 border-orange-500 flex flex-col gap-5 p-6 rounded-3xl'>
+    <div className='container mx-auto flex flex-col items-center justify-center'>
+      <div className='w-[30%] border-2 mt-12 mb-10 border-orange-500 flex flex-col gap-5 p-6 rounded-3xl'>
         <h2 className='text-3xl'>Create Recipe</h2>
-        <form onSubmit={onSubmit} className='flex flex-col'>
+        <form onSubmit={onSubmit} className='flex flex-col h-fit'>
           <label htmlFor='name' className='text-lg mb-1'>
             Name
           </label>
