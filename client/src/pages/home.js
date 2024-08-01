@@ -64,7 +64,7 @@ const Home = () => {
                 alt={recipe.name}
                 className='max-w-full w-[400px] h-auto rounded-t-lg'
               />
-              <div className='w-[90%]// my-3// mx-auto// p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
+              <div className='p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
                 <h2 className=''>{recipe.name}</h2>
                 <button disabled={isRecipeSaved(recipe._id)} onClick={() => saveRecipe(recipe._id)}>
                   {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
