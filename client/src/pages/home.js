@@ -58,16 +58,14 @@ const Home = () => {
       <ul className='flex flex-row gap-5 flex-wrap justify-center'>
         {recipes.map(recipe => {
           return (
-            <li
-              key={recipe._id}
-              className='max-w-3xl flex flex-col gap-0 border-orange-500 rounded-xl border-2 h-fit'>
+            <li key={recipe._id} className='w-[400px] h-fit flex flex-col'>
               <img
                 src={recipe.imageUrl}
                 alt={recipe.name}
-                className='max-w-42 h-auto rounded-t-lg'
+                className='max-w-full w-[400px] h-auto rounded-t-lg'
               />
-              <div className='w-[90%] my-3 mx-auto'>
-                <h2>{recipe.name}</h2>
+              <div className='w-[90%]// my-3// mx-auto// p-5 border-orange-500 border-l border-r border-b rounded-b-lg'>
+                <h2 className=''>{recipe.name}</h2>
                 <button disabled={isRecipeSaved(recipe._id)} onClick={() => saveRecipe(recipe._id)}>
                   {isRecipeSaved(recipe._id) ? 'Saved' : 'Save'}
                 </button>
